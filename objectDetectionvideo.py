@@ -1,12 +1,12 @@
 import cv2
-
-cam=cv2.VideoCapture(1)
+import numpy as np
+cam = cv2.VideoCapture(0)
 # video dimensions
 
 #length
-cam.set(3,740)
-#width
-cam.set(4,580)
+# cam.set(3,740)
+# width
+# cam.set(4,580)
 
 
 classNames=[]
@@ -26,7 +26,8 @@ net.setInputMean((127.5, 127.5, 127.5))
 net.setInputSwapRB(True)
 # clssIds: the returned ids , confs: the confidence , bbox: the drawn box
 while True:
-    success,img=cam.read()
+    ret, img = cam.read()
+   
     classIds,confs,bbox=net.detect(img,confThreshold=0.5)
     #confThreshold
     print(classIds,bbox)
@@ -35,10 +36,11 @@ while True:
             cv2.rectangle(img , box ,color=(0,255,0),thickness=1)
             cv2.putText(img , classNames[classid-1] , (box[0]+10 ,box[1]+20 ),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),thickness=1)
 
+    cv2.imshow('frame',img)
+    if cv2.waitKey(0) & 0xFF == 27:
+        break
+    
+   
 
-    img=cv2.resize(img, (800, 600))
-    cv2.imshow('Detector',img)
-
-    cv2.waitKey(1)
-
-Camera()
+cam.release()
+cv2.destroyAllWindows()
