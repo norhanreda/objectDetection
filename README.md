@@ -25,12 +25,12 @@
 
 <p>
   you need to hanve a python environment and you need
-  python -m pip install requests
+<hr>  python -m pip install requests
 
 
 pip install opencv-python
 
-  <h2>How to run  <h2>
+  <h2>How to run  </h2>
     
     you can use cmd as :
     <li> python objectDetectionimage.py   </li> to run image detector you can change image_path from inside code or
