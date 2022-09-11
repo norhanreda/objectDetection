@@ -13,8 +13,19 @@ with open(classFile,'rt') as f:
 configPath='ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
 weightPath='frozen_inference_graph.pb'
 
+net = cv2.dnn_DetectionModel(weightPath, configPath)
+net.setInputSize(320 , 230)
+net.setInputScale(1.0 / 127.5)
+net.setInputMean((127.5, 127.5, 127.5))
+net.setInputSwapRB(True)
+# clssIds: the returned ids , confs: the confidence , bbox: the drawn box
+classIds,confs,bbox=net.detect(img,confThreshold=0.5)
+#confThreshold
+print(classIds,bbox)
 
 
+
+   
 
 
 
