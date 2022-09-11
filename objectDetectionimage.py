@@ -29,14 +29,7 @@ for classid, confidence, box in zip(classIds.flatten() ,confs.flatten(), bbox):
 
 
    
-
-
-
-
-
-
-
-
+#show image
 img=cv2.resize(img, (800, 600))
 cv2.imshow('Detector',img)
 
