@@ -22,8 +22,8 @@ net.setInputSwapRB(True)
 classIds,confs,bbox=net.detect(img,confThreshold=0.5)
 #confThreshold
 print(classIds,bbox)
-
-for classid, confidence, box in zip(classIds.flatten() ,confs.flatten(), bbox):
+if len(classIds) !=0:
+ for classid, confidence, box in zip(classIds.flatten() ,confs.flatten(), bbox):
     cv2.rectangle(img , box ,color=(0,255,0),thickness=1)
     cv2.putText(img , classNames[classid-1] , (box[0]+10 ,box[1]+20 ),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),thickness=1)
 
