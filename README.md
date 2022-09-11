@@ -33,9 +33,10 @@ pip install opencv-python
   <h2>How to run  </h2>
     
     you can use cmd as :
-    <li> python objectDetectionimage.py   </li> to run image detector you can change image_path from inside code or
+    <ul>
+  <li> python objectDetectionimage.py</li>    to run image detector you can change image_path from inside code or
     <li>python objectDetectionvideo.py </li> to run camera detector or you can provide a path of video inside code
-
+</ul>
 
 </p>
 
